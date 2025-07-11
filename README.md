@@ -32,3 +32,35 @@ Esta es una aplicación web construida con Angular standalone. Permite crear, ve
 ```bash
 git clone https://github.com/Felixbarba/Angular.git
 cd Angular
+
+```
+2. Instala las dependencias:
+
+  ```bash
+  npm install
+
+  ```
+  
+3. Ejecuta el servidor de desarrollo:
+
+  ```bash
+  ng serve
+
+  ```
+
+4. Abre tu navegador en http://localhost:4200
+
+
+## Observaciones
+
+* Esta app usa https://jsonplaceholder.typicode.com/posts, que es una API simulada. Por eso las acciones de crear, editar o eliminar no tienen efecto real, pero funcionan como prueba.
+
+* El ID se solicita manualmente como parte del requerimiento del proyecto, aunque normalmente lo asignaría la base de datos.
+  
+
+## Autor
+
+Félix Enrique Barba de la Rosa
+Proyecto realizado como ejercicio de prueba técnica.
+
+
