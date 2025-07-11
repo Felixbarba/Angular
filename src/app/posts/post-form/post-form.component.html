@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>{{ isEditMode ? 'Editar' : 'Crear' }} Publicación</h1>
+
+  <!-- Mensaje de éxito -->
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <form (ngSubmit)="savePost()">
+    <!-- ID editable -->
+    <div class="form-group mb-3">
+      <label for="id">ID</label>
+      <input
+        type="number"
+        id="id"
+        [(ngModel)]="post.id"
+        name="id"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Título -->
+    <div class="form-group mb-3">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="post.title"
+        name="title"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="form-group mb-3">
+      <label for="body">Contenido</label>
+      <textarea
+        id="body"
+        [(ngModel)]="post.body"
+        name="body"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Botones -->
+    <button type="submit" class="btn btn-success me-2" [disabled]="isSaving">
+      {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+    </button>
+
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      Cancelar
+    </button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Lista de Publicaciones</h1>
+
+  <button routerLink="/posts/create" class="btn btn-primary mb-3">
+    Crear publicación
+  </button>
+
+  
+  <div *ngIf="isLoading" class="d-flex justify-content-center my-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando publicaciones...</span>
+    </div>
+  </div>
+
+
+  <div *ngIf="!isLoading && errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage && posts && posts.length > 0; else noPosts">
+    <ul class="list-group">
+      <li *ngFor="let post of posts" class="list-group-item mb-2">
+        <h5>{{ post.title }}</h5>
+        <p>{{ post.body }}</p>
+        <button [routerLink]="['/posts', post.id, 'edit']" class="btn btn-sm btn-warning me-2">
+          Editar
+        </button>
+        <button (click)="deletePost(post.id)" class="btn btn-sm btn-danger">
+          Eliminar
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noPosts>
+    <p>No hay publicaciones disponibles.</p>
+  </ng-template>
+</div>
