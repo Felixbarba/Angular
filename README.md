@@ -61,6 +61,7 @@ cd Angular
 ## Autor
 
 Félix Enrique Barba de la Rosa
+---
 Proyecto realizado como ejercicio de prueba técnica.
 
 
